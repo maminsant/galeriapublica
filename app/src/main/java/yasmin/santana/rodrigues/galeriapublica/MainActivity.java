@@ -15,6 +15,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.Manifest;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -23,22 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    
-    public class MainViewModel extends AndroidViewModel{
-        int navigationOpSelected = R.id.gridViewOp; //guarda a opção escolhida pelo usuário no menu btNav
 
-        public MainViewModel(@NonNull Application application){
-            super(application);
-        }
-
-        public int getNavigationOpSelected(){ //pega e seta o valor
-            return navigationOpSelected;
-        }
-
-        public void setNavigationOpSelected(int navigationOpSelected){
-          this.navigationOpSelected = navigationOpSelected;
-        }
-    }
+    private static final int RESULT_REQUEST_PERMISSION = 1;
     BottomNavigationView bottowNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState){

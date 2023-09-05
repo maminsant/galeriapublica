@@ -41,7 +41,7 @@ public class GalleryPagingSource extends ListenableFuturePagingSource<Integer, I
             nextPageNumber = 1;
             initialLoadSize = loadParams.getLoadSize();
         }
-        Integer offset = 0;
+        Integer offSet = 0;
         if(nextPageNumber == 2) {
             offSet = initialLoadSize;
         }

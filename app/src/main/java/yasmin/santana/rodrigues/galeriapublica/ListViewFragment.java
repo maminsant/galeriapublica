@@ -20,11 +20,7 @@ public class ListViewFragment extends Fragment {
     private MainViewModel mViewModel;
     private View view;
 
-    public ListViewFragment() {
-        // Required empty public constructor
-    }
-
-    public static ListViewFragment newInstance(){
+    public static ListViewFragment newInstance() {
         return new ListViewFragment();
     }
 
@@ -36,18 +32,16 @@ public class ListViewFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
-        super.onViewCreated(view, savedInstanceState);
+        super.onViewCreated(view,savedInstanceState);
         mViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
         ListAdapter listAdapter = new ListAdapter(new ImageDataComparator());
         LiveData<PagingData<ImageData>> liveData = mViewModel.getPageLv();
         liveData.observe(getViewLifecycleOwner(), new Observer<PagingData<ImageData>>(){
-
             @Override
-            public void onChanged(PagingData<ImageData> imageDataPagingData) {
+            public void onChanged(PagingData<ImageData> objectPagingData){
                 listAdapter.submitData(getViewLifecycleOwner().getLifecycle(),objectPagingData);
-
             }
-        }
+        });
         RecyclerView rvGallery = (RecyclerView) view.findViewById(R.id.rvList);
         rvGallery.setAdapter(listAdapter);
         rvGallery.setLayoutManager(new LinearLayoutManager(getContext()));

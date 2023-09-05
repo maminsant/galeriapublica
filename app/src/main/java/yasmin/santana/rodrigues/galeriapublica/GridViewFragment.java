@@ -46,7 +46,7 @@ public class GridViewFragment extends Fragment {
         });
         RecyclerView rvGallery = (RecyclerView) view.findViewById(R.id.rvGrid);
         rvGallery.setAdapter(gridAdapter);
-        float w = getResources().getDimension(R.dimen.imWidth);
+        float w = getResources().getDimension(R.dimen.im_width);
         int numberOfColumns = Util.calculateNoOfColumns(getContext(), w);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), numberOfColumns);
         rvGallery.setLayoutManager(gridLayoutManager);
