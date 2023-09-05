@@ -67,7 +67,8 @@ public class GalleryPagingSource extends ListenableFuturePagingSource<Integer, I
                     return new LoadResult.Error<>(e);
                 }
             }
-        }
-    });
+        });
+        return lf;
+    }
 }
 
